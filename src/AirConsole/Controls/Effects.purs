@@ -1,4 +1,4 @@
-module AirConsoleControls.Effects where
+module AirConsole.Controls.Effects where
 
 import Control.Monad.Eff (kind Effect)
 

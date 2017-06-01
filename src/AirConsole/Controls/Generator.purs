@@ -1,11 +1,10 @@
-module AirConsoleControls.Generator where
+module AirConsole.Controls.Generator where
 
 import Prelude (Unit, (<<<))
 import Control.Monad.Eff (Eff)
 import AirConsole.Types (AirConsoleGlobal)
-import AirConsoleControls.Types ( CtrlGeneratorGlobal
+import AirConsole.Controls.Types ( CtrlGeneratorGlobal
                                 , MandatoryCtrlGeneratorOpts
-                                -- , MandatorySideControlTypeOpts
                                 , CtrlGeneratorType
                                 )
 import AirConsole.FFI ( runEffFn0
@@ -13,7 +12,7 @@ import AirConsole.FFI ( runEffFn0
                       , unsafeGetField
                       )
 
-foreign import getCtrlGeneratorGlobal:: forall e. Eff e CtrlGeneratorGlobal
+foreign import getCtrlGeneratorGlobal :: forall e. Eff e CtrlGeneratorGlobal
 
 setAirConsole
     :: forall e
