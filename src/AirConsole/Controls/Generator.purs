@@ -4,9 +4,9 @@ import Prelude (Unit, (<<<))
 import Control.Monad.Eff (Eff)
 import AirConsole.Types (AirConsoleGlobal)
 import AirConsole.Controls.Types ( CtrlGeneratorGlobal
-                                , MandatoryCtrlGeneratorOpts
-                                , CtrlGeneratorType
-                                )
+                                 , MandatoryCtrlGeneratorOpts
+                                 , CtrlGeneratorType
+                                 )
 import AirConsole.FFI ( runEffFn0
                       , runEffFn1
                       , unsafeGetField
