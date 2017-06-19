@@ -1,5 +1,7 @@
 "use strict"
 
 exports.getCtrlGeneratorGlobal = function() {
-  return CtrlGenerator;
+  return function() {
+    return CtrlGenerator
+  }
 }
