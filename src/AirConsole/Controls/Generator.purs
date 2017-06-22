@@ -4,13 +4,14 @@ import Prelude (Unit, (<<<))
 import Control.Monad.Eff (Eff)
 import AirConsole.Types (AirConsoleGlobal)
 import AirConsole.Controls.Types ( CtrlGeneratorGlobal
-                                 , MandatoryCtrlGeneratorOpts
-                                 , CtrlGeneratorType
+                                 -- , MandatoryCtrlGeneratorOpts
+                                 -- , CtrlGeneratorType
                                  )
 import AirConsole.FFI ( runEffFn0
                       , runEffFn1
                       , unsafeGetField
                       )
+import Data.Foreign (Foreign)
 
 foreign import getCtrlGeneratorGlobal :: forall e. Eff e CtrlGeneratorGlobal
 
@@ -32,14 +33,14 @@ clear :: forall e. CtrlGeneratorGlobal -> Eff e Unit
 clear = runEffFn0 "clear"
 
 generate
-    :: forall r s t u v e
+    :: forall e
      . CtrlGeneratorGlobal
-    -> MandatoryCtrlGeneratorOpts r s t u v
+    -> Foreign
     -> Eff e Unit
 generate cfg = runEffFn1 "generate" cfg
 
-genType :: forall r. String -> CtrlGeneratorGlobal -> CtrlGeneratorType r
-genType t =  unsafeGetField t <<< unsafeGetField "Type"
+-- genType :: forall r. String -> CtrlGeneratorGlobal -> CtrlGeneratorType r
+-- genType t =  unsafeGetField t <<< unsafeGetField "Type"
 
 -- Element
 -- sendInputEvent key pressed params
