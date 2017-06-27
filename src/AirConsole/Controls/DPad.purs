@@ -1,5 +1,6 @@
 module AirConsole.Controls.DPad where
 
+import Prelude (Unit)
 import Control.Monad.Eff (Eff)
 import AirConsole.Controls.Types (AirConsoleControl)
 import Data.Function.Uncurried (Fn0, Fn1)
@@ -16,13 +17,13 @@ foreign import swipe :: String
 foreign import tap :: String
 type DPadCoordinate = { x :: Number, y :: Number }
 
-directionchange :: forall e a. Option AirConsoleControl (Fn0 (Eff e a))
+directionchange :: forall e. Option AirConsoleControl (Fn0 (Eff e Unit))
 directionchange = opt "directionchange"
 
-touchstart :: forall e a. Option AirConsoleControl (Fn0 (Eff e a))
+touchstart :: forall e. Option AirConsoleControl (Fn0 (Eff e Unit))
 touchstart = opt "touchstart"
 
-touchend :: forall e a. Option AirConsoleControl (Fn1 Boolean (Eff e a))
+touchend :: forall e. Option AirConsoleControl (Fn1 Boolean (Eff e Unit))
 touchend = opt "touchend"
 
 distance :: Option AirConsoleControl DPadCoordinate
