@@ -1,5 +1,6 @@
 module AirConsole.Controls.RateLimiter where
 
+import Prelude (Unit)
 import Control.Monad.Eff (Eff)
 import AirConsole.Types (AirConsoleGlobal, DeviceId)
 import AirConsole.Controls.Types (AirConsoleControl)

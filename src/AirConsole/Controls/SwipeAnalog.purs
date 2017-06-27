@@ -1,15 +1,14 @@
 module AirConsole.Controls.SwipeAnalog where
 
+import Prelude (Unit)
 import Control.Monad.Eff (Eff)
-import AirConsole.Types (AirConsoleGlobal, DeviceId)
 import AirConsole.Controls.Types (AirConsoleControl)
-import AirConsole.FFI (runFn1, runEffFn1, runEffFn2)
 import Data.Function.Uncurried (Fn1, Fn2)
 import Data.Options (Option, opt)
 import Data.Foreign (Foreign)
 
 foreign import data SwipeAnalogGlobal :: Type
-foreign import getSwipeAnalogGlobal :: forall a e. String -> Foreign -> SwipeAnalogGlobal
+foreign import getSwipeAnalogGlobal :: forall e. String -> Foreign -> Eff e SwipeAnalogGlobal
 
 type SwipeVector = { x :: Number
                    , y :: Number
