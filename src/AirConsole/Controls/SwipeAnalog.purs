@@ -4,11 +4,14 @@ import Prelude (Unit)
 import Control.Monad.Eff (Eff)
 import AirConsole.Controls.Types (AirConsoleControl)
 import Data.Function.Uncurried (Fn1, Fn2)
-import Data.Options (Option, opt)
+import Data.Options (Options, Option, opt, options)
 import Data.Foreign (Foreign)
 
 foreign import data SwipeAnalogGlobal :: Type
-foreign import getSwipeAnalogGlobal :: forall e. String -> Foreign -> Eff e SwipeAnalogGlobal
+foreign import getSwipeAnalogGlobalImpl :: forall e. String -> Foreign -> Eff e SwipeAnalogGlobal
+
+getSwipeAnalogGlobal :: forall e. String -> Options AirConsoleControl -> Eff e SwipeAnalogGlobal
+getSwipeAnalogGlobal el opts = getSwipeAnalogGlobalImpl el (options opts)
 
 type SwipeVector = { x :: Number
                    , y :: Number

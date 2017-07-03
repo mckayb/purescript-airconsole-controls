@@ -1,6 +1,6 @@
 'use strict'
 
-exports.getShakeDetectorGlobal = function (opts) {
+exports.getShakeDetectorGlobalImpl = function (opts) {
   return function () {
     return new AirConsoleShakeDetector(opts)
   }

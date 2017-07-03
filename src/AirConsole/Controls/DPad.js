@@ -1,8 +1,10 @@
 'use strict'
 
-exports.getDPadGlobal = function () {
-  return function() {
-    return DPad
+exports.getDPadGlobalImpl = function (el) {
+  return function (opts) {
+    return function () {
+      return new DPad(el, opts)
+    }
   }
 }
 

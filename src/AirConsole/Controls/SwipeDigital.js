@@ -1,6 +1,6 @@
 'use strict'
 
-exports.getSwipeDigitalGlobal = function (el) {
+exports.getSwipeDigitalGlobalImpl = function (el) {
   return function (opts) {
     return function () {
       return new SwipeDigital(el, opts)

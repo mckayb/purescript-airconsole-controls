@@ -5,10 +5,13 @@ import Control.Monad.Eff (Eff)
 import AirConsole.Controls.Types (AirConsoleControl)
 import Data.Foreign (Foreign)
 import Data.Function.Uncurried (Fn1, Fn2)
-import Data.Options (Option, opt)
+import Data.Options (Options, Option, opt, options)
 
 foreign import data SwipeDigitalGlobal :: Type
-foreign import getSwipeDigitalGlobal :: forall e. String -> Foreign -> Eff e SwipeDigitalGlobal
+foreign import getSwipeDigitalGlobalImpl :: forall e. String -> Foreign -> Eff e SwipeDigitalGlobal
+
+getSwipeDigitalGlobal :: forall e. String -> Options AirConsoleControl -> Eff e SwipeDigitalGlobal
+getSwipeDigitalGlobal el opts = getSwipeDigitalGlobalImpl el (options opts)
 
 type ActiveDirections = { up :: Boolean
                         , down :: Boolean

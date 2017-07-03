@@ -32,18 +32,3 @@ right = cmap options (opt "right")
 
 middle :: Option AirConsoleControl (Array (Options AirConsoleControl))
 middle = cmap (map options) (opt "middle")
-
--- Pad
-directionchange :: forall e a. Option AirConsoleControl (Fn2 String Boolean (Eff e a))
-directionchange = opt "directionchange"
-
-touchmove :: forall e a b. Option AirConsoleControl (a -> Eff e b)
-touchmove = opt "touchmove"
-
--- type CtrlGeneratorType r = { label :: String, class_name :: String | r }
--- type SideControl r s = { type :: CtrlGeneratorType r | s }
--- type MiddleControl r = Array (CtrlGeneratorType r)
--- type MandatoryCtrlGeneratorOpts r s t u v = { left :: SideControl r s
-                                            -- , middle :: MiddleControl t
-                                            -- , right :: Array (SideControl u v)
-                                            -- }

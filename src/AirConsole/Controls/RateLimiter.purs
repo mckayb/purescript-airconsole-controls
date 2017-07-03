@@ -6,11 +6,14 @@ import AirConsole.Types (AirConsoleGlobal, DeviceId)
 import AirConsole.Controls.Types (AirConsoleControl)
 import AirConsole.FFI (runFn1, runEffFn1, runEffFn2)
 import Data.Function.Uncurried (Fn0, Fn1)
-import Data.Options (Option, opt)
+import Data.Options (Options, Option, opt, options)
 import Data.Foreign (Foreign)
 
 foreign import data RateLimiterGlobal :: Type
-foreign import getRateLimiterGlobal :: forall a e. AirConsoleGlobal -> Foreign -> Eff e RateLimiterGlobal
+foreign import getRateLimiterGlobalImpl :: forall e. AirConsoleGlobal -> Foreign -> Eff e RateLimiterGlobal
+
+getRateLimiterGlobal :: forall e. AirConsoleGlobal -> Options AirConsoleControl -> Eff e RateLimiterGlobal
+getRateLimiterGlobal ac opts = getRateLimiterGlobalImpl ac (options opts)
 
 rate_limit :: Option AirConsoleControl Number
 rate_limit = opt "rate_limit"
