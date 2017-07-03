@@ -1,10 +1,8 @@
 module AirConsole.Controls.Types where
 
-import Control.Monad.Eff (Eff)
-import Data.Function.Uncurried (Fn0, Fn1, Fn2)
 import Data.Functor (map)
 import Data.Functor.Contravariant (cmap)
-import Data.Options (Options, Option, options, opt, (:=))
+import Data.Options (Options, Option, options, opt)
 
 foreign import data CtrlGeneratorGlobal :: Type
 foreign import data AirConsoleControl :: Type

@@ -6,7 +6,6 @@ import AirConsole.Controls.Types (AirConsoleControl)
 import Data.Function.Uncurried (Fn0, Fn1)
 import Data.Options (Options, Option, opt, options)
 import Data.Foreign (Foreign)
-import AirConsole.FFI (unsafeGetField, runEffFn0)
 
 foreign import data DPadGlobal :: Type
 foreign import getDPadGlobalImpl :: forall e. String -> Foreign -> Eff e DPadGlobal

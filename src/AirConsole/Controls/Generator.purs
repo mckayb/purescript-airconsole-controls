@@ -1,15 +1,11 @@
 module AirConsole.Controls.Generator where
 
-import Prelude (Unit, (<<<))
+import Prelude (Unit)
 import Control.Monad.Eff (Eff)
 import AirConsole.Types (AirConsoleGlobal)
-import AirConsole.Controls.Types ( CtrlGeneratorGlobal
-                                 -- , MandatoryCtrlGeneratorOpts
-                                 -- , CtrlGeneratorType
-                                 )
+import AirConsole.Controls.Types (CtrlGeneratorGlobal)
 import AirConsole.FFI ( runEffFn0
                       , runEffFn1
-                      , unsafeGetField
                       )
 import Data.Foreign (Foreign)
 
@@ -41,7 +37,7 @@ generate cfg = runEffFn1 "generate" cfg
 
 -- genType :: forall r. String -> CtrlGeneratorGlobal -> CtrlGeneratorType r
 -- genType t =  unsafeGetField t <<< unsafeGetField "Type"
-
+-- Type
 -- Element
 -- sendInputEvent key pressed params
 -- getGeneratedObjects Fn0

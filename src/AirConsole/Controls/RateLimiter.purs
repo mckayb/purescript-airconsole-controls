@@ -5,7 +5,6 @@ import Control.Monad.Eff (Eff)
 import AirConsole.Types (AirConsoleGlobal, DeviceId)
 import AirConsole.Controls.Types (AirConsoleControl)
 import AirConsole.FFI (runFn1, runEffFn1, runEffFn2)
-import Data.Function.Uncurried (Fn0, Fn1)
 import Data.Options (Options, Option, opt, options)
 import Data.Foreign (Foreign)
 
