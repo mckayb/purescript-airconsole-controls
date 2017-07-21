@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "purescript-prelude": "^3.0.0",
-    "purescript-airconsole": "^0.3.0",
+    "purescript-airconsole": "^0.3.1",
     "purescript-options": "^3.0.0"
   },
   "devDependencies": {}
